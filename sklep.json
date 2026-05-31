@@ -1,0 +1,14 @@
+[
+{"type":"header","version":"5.2.1","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"sklep"},
+{"type":"table","name":"products","database":"sklep","data":
+[
+{"id":"1","name":"Pergel","liters":"3 l","price":"45.99","image":"https:\/\/polskikoszyk.pl\/environment\/cache\/images\/productGfx_174486_350_350\/1768500993294-7364-3-woj58.webp","category":"inne"},
+{"id":"2","name":"Wino białe","liters":"0,75 l","price":"42.50","image":"https:\/\/drinks2cash.com\/file\/image\/w800\/h800\/30496i0ad9c8d5cdcfb77ae3d.jpg","category":"inne"},
+{"id":"3","name":"Sok jabłkowy","liters":"1,0 l","price":"9.99","image":"https:\/\/drinks2cash.com\/file\/image\/w800\/h800\/30496i0ad9c8d5cdcfb77ae3d.jpg","category":"inne"},
+{"id":"4","name":"Piwo rzemieślnicze","liters":"0,5 l","price":"7.49","image":"https:\/\/drinks2cash.com\/file\/image\/w800\/h800\/30496i0ad9c8d5cdcfb77ae3d.jpg","category":"inne"},
+{"id":"5","name":"Olej z oliwek","liters":"0,5 l","price":"27.90","image":"https:\/\/drinks2cash.com\/file\/image\/w800\/h800\/30496i0ad9c8d5cdcfb77ae3d.jpg","category":"inne"},
+{"id":"6","name":"Woda mineralna","liters":"1,5 l","price":"4.20","image":"https:\/\/drinks2cash.com\/file\/image\/w800\/h800\/30496i0ad9c8d5cdcfb77ae3d.jpg","category":"inne"}
+]
+}
+]
