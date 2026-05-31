@@ -32,6 +32,51 @@
     </main>
 
     <script>
+        const products = [
+            {
+                name: 'Wino czerwone',
+                liters: '0,75 l',
+                price: 45.99,
+                image: 'https://via.placeholder.com/400x300?text=Wino+czerwone',
+                category: 'Artykuły spożywcze'
+            },
+            {
+                name: 'Wino białe',
+                liters: '0,75 l',
+                price: 42.50,
+                image: 'https://via.placeholder.com/400x300?text=Wino+białe',
+                category: 'Artykuły spożywcze'
+            },
+            {
+                name: 'Sok jabłkowy',
+                liters: '1,0 l',
+                price: 9.99,
+                image: 'images/sok.jpg',
+                category: 'Artykuły spożywcze'
+            },
+            {
+                name: 'Piwo rzemieślnicze',
+                liters: '0,5 l',
+                price: 7.49,
+                image: 'https://duzyben.pl/hpeciai/ca13e24935eb611f651dcf36acf40ce7/pol_pl_PIWO-HARNAS-0-5L-BUT-ZW-50_1_1.jpg',
+                category: 'Artykuły spożywcze'
+            },
+            {
+                name: 'Olej z oliwek',
+                liters: '0,5 l',
+                price: 27.90,
+                image: 'https://via.placeholder.com/400x300?text=Olej+z+oliwek',
+                category: 'Artykuły spożywcze'
+            },
+            {
+                name: 'Woda mineralna',
+                liters: '1,5 l',
+                price: 4.20,
+                image: 'https://via.placeholder.com/400x300?text=Woda+mineralna',
+                category: 'Artykuły spożywcze'
+            }
+        ];
+
         const form = document.getElementById('filterForm');
         const categorySelect = document.getElementById('category');
         const productContainer = document.getElementById('productContainer');
@@ -73,23 +118,16 @@
             productContainer.innerHTML = `<div class="product-grid">${cards}</div>`;
         }
 
-        async function loadProducts(category = '') {
-            const params = new URLSearchParams();
-            if (category) {
-                params.set('category', category);
+        function getFilteredProducts(category = '') {
+            if (!category) {
+                return products;
             }
+            return products.filter(product => product.category === category);
+        }
 
-            try {
-                const response = await fetch('products.php?' + params.toString());
-                if (!response.ok) {
-                    throw new Error('Błąd serwera');
-                }
-
-                const data = await response.json();
-                renderProducts(data);
-            } catch (error) {
-                productContainer.innerHTML = '<div class="empty-state"><h2>Błąd ładowania produktów</h2></div>';
-            }
+        function loadProducts(category = '') {
+            const filteredProducts = getFilteredProducts(category);
+            renderProducts({ products: filteredProducts });
         }
 
         form.addEventListener('submit', function (event) {
