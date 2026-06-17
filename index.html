@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prosty sklep</title>
+    <title>Strona główna</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="site-header">
         <div class="container">
-            <h1>Prosty sklep</h1>
+            <h1><a href="#top">Strona główna</a></h1>
         </div>
     </header>
 
@@ -33,50 +33,62 @@
 
     <script>
         const products = [
-            {
-                name: 'Wino czerwone',
-                liters: '0,75 l',
-                price: 45.99,
-                image: 'data:image/webp;base64,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',
-                category: 'Artykuły spożywcze'
-            },
-            {
-                name: 'Wino białe',
-                liters: '0,75 l',
-                price: 42.50,
-                image: 'https://pro-fra-s3-productsassets.rossmann.pl/product_1_medium/398783_360_350_1727377319.webp',
-                category: 'Artykuły spożywcze'
-            },
-            {
-                name: 'Sok jabłkowy',
-                liters: '1,0 l',
-                price: 9.99,
-                image: 'images/sok.jpg',
-                category: 'Artykuły spożywcze'
-            },
-            {
-                name: 'Piwo rzemieślnicze',
-                liters: '0,5 l',
-                price: 7.49,
-                image: 'https://duzyben.pl/hpeciai/ca13e24935eb611f651dcf36acf40ce7/pol_pl_PIWO-HARNAS-0-5L-BUT-ZW-50_1_1.jpg',
-                category: 'Artykuły spożywcze'
-            },
-            {
-                name: 'Olej z oliwek',
-                liters: '0,5 l',
-                price: 27.90,
-                image: 'https://i.erli.pl/d1lopo.aef1e5.l.webp',
-                category: 'Artykuły spożywcze'
-            },
-            {
-                name: 'Woda mineralna',
-                liters: '1,5 l',
-                price: 4.20,
-                image: 'https://via.placeholder.com/400x300?text=Woda+mineralna',
-                category: 'Artykuły spożywcze'
-            }
+            { name: 'Pergel Black', liters: '3l', price: 12.00, image: 'Zdjęcia/Pergel black.jpg', category: 'Chemia do prania' },
+            { name: 'Pergel Kolor', liters: '3l', price: 12.00, image: 'Zdjęcia/Pergel kolor.jpg', category: 'Chemia do prania' },
+            { name: 'Pergel Universal', liters: '3l', price: 12.00, image: 'Zdjęcia/Pergel uniwersalny.jpg', category: 'Chemia do prania' },
+            { name: 'Vizir proszek do prania kolor', liters: '1,1 kg', price: 22.00, image: 'Zdjęcia/Vizir kolor.jpg', category: 'Chemia do prania' },
+            { name: 'Vizir proszek do białych', liters: '1,1 kg', price: 22.00, image: 'Zdjęcia/Vizir biały.jpg', category: 'Chemia do prania' },
+            { name: 'Tresori płyn do płukania', liters: '760 ml', price: 14.00, image: 'Zdjęcia/tresori płyn do płukania.jpg', category: 'Chemia do prania' },
+            { name: 'Ariel kapsułki do prania black', liters: '10 szt', price: 13.00, image: 'Zdjęcia/ariel_kapsułki do prania black.jpg', category: 'Chemia do prania' },
+            { name: 'Ariel kapsułki color', liters: '19 szt', price: 24.00, image: 'Zdjęcia/ariel kapsułki do prania color.jpg', category: 'Chemia do prania' },
+            { name: 'Vanish odplamiacz white', liters: '1l', price: 15.00, image: 'Zdjęcia/vanish odplamiacz.jpg', category: 'Chemia do prania' },
+            { name: 'Vanish color', liters: '1,5l', price: 22.00, image: 'Zdjęcia/vanish color.jpg', category: 'Chemia do prania' },
+            { name: 'Persil płyn do prania kolor', liters: '6l', price: 50.00, image: 'Zdjęcia/Persil kolor.jpg', category: 'Chemia do prania' },
+            { name: 'Persil płyn do prania uniwersalny', liters: '6l', price: 50.00, image: 'Zdjęcia/Persil uniwerslany.jpg', category: 'Chemia do prania' },
+            { name: 'Persil płyn do prania black', liters: '6l', price: 50.00, image: 'Zdjęcia/Persil czarny.jpg', category: 'Chemia do prania' },
+            { name: 'Eco Shine Sanit pianka odkamieniająca', liters: '1l', price: 16.00, image: 'Zdjęcia/ECO SHINE SANIT pianka.jpg', category: 'Chemia do sprzątania' },
+            { name: 'Eco Shine Oven Cleaner', liters: '1l', price: 18.50, image: 'Zdjęcia/eco shine oven cleaner.jpg', category: 'Chemia do sprzątania' },
+            { name: 'Eco Shine Smart Foam', liters: '1l', price: 18.00, image: 'Zdjęcia/eco shine smart foam.jpg', category: 'Chemia do sprzątania' },
+            { name: 'Eco Shine Toilet Cleaner', liters: '750 ml', price: 12.00, image: 'Zdjęcia/Eco shine toilet.jpg', category: 'Chemia do sprzątania' },
+            { name: 'Eco Shine Floor płyn z alkoholem do podłóg', liters: '1l', price: 18.00, image: 'Zdjęcia/Eco shine floor cleaner.jpg', category: 'Chemia do sprzątania' },
+            { name: 'Eco Shine Dish Cleaner płyn do naczyń', liters: '1l', price: 9.00, image: 'Zdjęcia/Eco shine dish cleaner.jpg', category: 'Chemia do sprzątania' },
+            { name: 'Cillit Bang do tłuszczu', liters: '750 ml', price: 12.00, image: 'Zdjęcia/Cilit_tłuszcz.jpg', category: 'Chemia do sprzątania' },
+            { name: 'Cillit Bang do kamienia', liters: '750 ml', price: 12.00, image: 'Zdjęcia/Cilit bang do kamienia.jpg', category: 'Chemia do sprzątania' },
+            { name: 'Domestos', liters: '750 ml', price: 12.00, image: 'Zdjęcia/Domestos.jpg', category: 'Chemia do sprzątania' },
+            { name: 'Spic Span płyn do podłóg', liters: '1l', price: 8.50, image: 'Zdjęcia/Spic Span.jpeg', category: 'Chemia do sprzątania' },
+            { name: 'Eco Seventh generation płyn do prania', liters: '1l', price: 12.00, image: 'Zdjęcia/Seventh generation płyn do płukania.jpg', category: 'Chemia do prania' },
+            { name: 'Eco Seventh generation płyn do czyszczenia', liters: '500 ml', price: 6.00, image: 'Zdjęcia/Seventh generation płyn do czyszczenia.jpg', category: 'Chemia do sprzątania' },
+            { name: 'Villa płyn do szyb i luster', liters: '750 ml', price: 7.50, image: 'Zdjęcia/Villa płyn do szyb.jpg', category: 'Chemia do sprzątania' },
+            { name: 'Fairy płyn do naczyń', liters: '900 ml', price: 10.50, image: 'Zdjęcia/Fairy płyn do naczyń.jpg', category: 'Chemia do sprzątania' },
+            { name: 'Emulsio pianka do czyszczenia mebli', liters: '300 ml', price: 14.00, image: 'Zdjęcia/Emulsio.jpg', category: 'Chemia do sprzątania' },
+            { name: 'Papier do pieczenia 8m/38cm', price: 5.00, image: 'Zdjęcia/Papier do pieczenia.jpg', category: 'inne' },
+            { name: 'Rękaw do pieczenia 3m', price: 4.00, image: 'Zdjęcia/Rękaw do pieczenia.jpg', category: 'inne' },
+            { name: 'Reczniki Foxy', price: 8.00, image: 'Zdjęcia/Ręczniki Foxy.jpg', category: 'inne' },
+            { name: 'Płatki kosmetyczne Beauty', price: 4.00, image: 'Zdjęcia/Płatki kosmetyczne.jpg', category: 'inne' },
+            { name: 'Gilette blue 3', liters: '6 szt', price: 18.00, image: 'Zdjęcia/Gilette blue 3.jpg', category: 'inne' },
+            { name: 'Kret granulki duży', liters: '800 g', price: 16.00, image: 'Zdjęcia/Kret granulki duży.jpg', category: 'Chemia do sprzątania' },
+            { name: 'Kret granulki mały', liters: '280 g', price: 5.00, image: 'Zdjęcia/Kret granulki mały.jpg', category: 'Chemia do sprzątania' },
+            { name: 'Pril kapsułki do zmywarki', liters: '30 szt', price: 24.00, image: 'Zdjęcia/Pril.jpg', category: 'Chemia do sprzątania' },
+            { name: 'Tresori dyfuzor z patyczkami (2 kolory)', liters: '200 ml', price: 28.00, image: 'Zdjęcia/Tresori patyczki zapachowe.jpg', category: 'inne' },
+            { name: 'Kami folia aluminiowa 20m', price: 7.00, image: 'Zdjęcia/Folia aluminiowa kami.jpg', category: 'inne' },
+            { name: 'Subito zapalarka do gazu', price: 3.00, image: 'Zdjęcia/Zapalarki subito.jpg', category: 'inne' },
+            { name: 'Colgate szczoteczki do zębów', liters: '4 szt/opakowanie', price: 10.00, image: 'Zdjęcia/Szczoteczki do zebow.jpg', category: 'inne' },
+            { name: 'Zmywaki do teflonu', liters: '2 szt', price: 2.50, image: 'Zdjęcia/Zmywka do teflonu.jpg', category: 'Chemia do sprzątania' },
+            { name: 'Worki na śmieci 35l', liters: '15 szt', price: 2.50, image: 'Zdjęcia/Worki 35l.jpg', category: 'Chemia do sprzątania' },
+            { name: 'Worki na śmieci 60l', liters: '10 szt', price: 3.50, image: 'Zdjęcia/worki 60l.jpg', category: 'Chemia do sprzątania' },
+            { name: 'Worki na śmieci 120l', liters: '10 szt', price: 4.50, image: 'Zdjęcia/worki 120l.jpg', category: 'Chemia do sprzątania' },
+            { name: 'Worki na śmieci 160l', liters: '10 szt', price: 9.00, image: 'Zdjęcia/worki 160l.jpg', category: 'Chemia do sprzątania' },
+            { name: 'Makaron Lubella spaghetti', liters: '400 g', price: 3.50, image: 'Zdjęcia/Spaghetti.jpg', category: 'Artykuły spożywcze' },
+            { name: 'Makaron Lubella nitki', liters: '400 g', price: 3.50, image: 'Zdjęcia/Nitki.png', category: 'Artykuły spożywcze' },
+            { name: 'Makaron Lubella świderki', liters: '400 g', price: 3.50, image: 'Zdjęcia/Świderki.jpg', category: 'Artykuły spożywcze' },
+            { name: 'Makaron Lubella pióra', liters: '400 g', price: 3.50, image: 'Zdjęcia/Pióra.jpg', category: 'Artykuły spożywcze' },
+            { name: 'Łowicz Sos boloński', liters: '500 g', price: 5.50, image: 'Zdjęcia/Sos Boloński.jpg', category: 'Artykuły spożywcze' },
+            { name: 'Łowicz Sos spaghetti', liters: '500 g', price: 5.50, image: 'Zdjęcia/sos spaghetti.jpg', category: 'Artykuły spożywcze' },
+            { name: 'Łowicz Sos słodko-kwaśny', liters: '500 g', price: 5.50, image: 'Zdjęcia/Sos_słodko-kwaśny.jpg', category: 'Artykuły spożywcze' },
+            { name: 'Łowicz koncentrat pomidorowy', liters: '80 g', price: 2.50, image: 'Zdjęcia/Koncentrat.png', category: 'Artykuły spożywcze' },
+            { name: 'Kotlin Ketchup łagodny', liters: '450 g', price: 5.00, image: 'Zdjęcia/Kotlin_Ketchup_łagodny.png', category: 'Artykuły spożywcze' },
+            { name: 'Kotlin Ketchup pikantny', liters: '450 g', price: 5.00, image: 'Zdjęcia/Ketchup_pikantny.jpg', category: 'Artykuły spożywcze' }
         ];
-
         const form = document.getElementById('filterForm');
         const categorySelect = document.getElementById('category');
         const productContainer = document.getElementById('productContainer');
@@ -90,10 +102,24 @@
                 .replace(/'/g, '&#39;');
         }
 
+        function getMetaLabel(liters) {
+            if (typeof liters !== 'string') {
+                return 'Litraż';
+            }
+            if (liters.includes('kg')) {
+                return 'Waga';
+            }
+            if (liters.includes('szt')) {
+                return 'Ilość sztuk';
+            }
+            return 'Litraż';
+        }
+
         function createProductCard(product) {
             const categoryHtml = product.category ? `<p class="product-category">Kategoria: <strong>${escapeHtml(product.category)}</strong></p>` : '';
             const imageHtml = product.image ? `<img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}">` : '';
             const price = Number(product.price).toFixed(2).replace('.', ',');
+            const metaLabel = getMetaLabel(product.liters);
 
             return `
                 <article class="product-card">
@@ -101,7 +127,7 @@
                     <div class="product-info">
                         <h2>${escapeHtml(product.name)}</h2>
                         ${categoryHtml}
-                        <p class="product-meta">Litraż: <strong>${escapeHtml(product.liters)}</strong></p>
+                        <p class="product-meta">${metaLabel}: <strong>${escapeHtml(product.liters)}</strong></p>
                         <p class="product-price"><strong>${escapeHtml(price)} zł</strong></p>
                     </div>
                 </article>
