@@ -251,6 +251,15 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         }
+
+        
+        // Po odświeżeniu strony zawsze ustawiamy pozycję na górze
+        window.addEventListener('pageshow', function () {
+            window.scrollTo(0, 0);
+        });
+        window.addEventListener('beforeunload', function () {
+            window.scrollTo(0, 0);
+        });
     </script>
 </body>
 </html>
