@@ -373,7 +373,7 @@ $products = [
         'name' => 'Kotlin Ketchup łagodny',
         'liters' => '450 g',
         'price' => 5.00,
-        'image' => 'Zdjęcia/Kotlin_Ketchup_łagodny.png',
+        'image' => 'Zdjęcia/Kotlin_ketchup_łagodny.png',
         'category' => 'Artykuły spożywcze'
     ],
     [
