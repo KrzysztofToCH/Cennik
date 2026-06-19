@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strona główna</title>
+    <title>Cennik Radom</title>
     <link rel="stylesheet" href="style.css?ver=2">
 </head>
 <body>
@@ -19,13 +19,15 @@
                 <label for="search">Wyszukaj produkt:</label>
                 <input type="search" id="search" name="search" placeholder="Nazwa produktu">
                 <label for="category">Filtruj kategorię:</label>
-                <select id="category" name="category">
-                    <option value="">Wszystkie kategorie</option>
-                    <option value="Chemia do prania">Chemia do prania</option>
-                    <option value="Chemia do sprzątania">Chemia do sprzątania</option>
-                    <option value="Artykuły spożywcze">Artykuły spożywcze</option>
-                    <option value="inne">inne</option>
-                </select>
+                <div class="select-wrapper">
+                    <select id="category" name="category">
+                        <option value="">Wszystkie kategorie</option>
+                        <option value="Chemia do prania">Chemia do prania</option>
+                        <option value="Chemia do sprzątania">Chemia do sprzątania</option>
+                        <option value="Artykuły spożywcze">Artykuły spożywcze</option>
+                        <option value="inne">inne</option>
+                    </select>
+                </div>
                 <button type="submit">Zastosuj</button>
             </form>
         </div>
@@ -35,9 +37,9 @@
 
     <script>
         const products = [
-            { name: 'Pergel Black', liters: '3l', price: 12.00, image: 'Zdjęcia/Pergel black.jpg', category: 'Chemia do prania' },
-            { name: 'Pergel Kolor', liters: '3l', price: 12.00, image: 'Zdjęcia/Pergel kolor.jpg', category: 'Chemia do prania' },
-            { name: 'Pergel Universal', liters: '3l', price: 12.00, image: 'Zdjęcia/Pergel uniwersalny.jpg', category: 'Chemia do prania' },
+            { name: 'Pergel Black', liters: '3 l', price: 12.00, image: 'Zdjęcia/Pergel black.jpg', category: 'Chemia do prania' },
+            { name: 'Pergel Kolor', liters: '3 l', price: 12.00, image: 'Zdjęcia/Pergel kolor.jpg', category: 'Chemia do prania' },
+            { name: 'Pergel Universal', liters: '3 l', price: 12.00, image: 'Zdjęcia/Pergel uniwersalny.jpg', category: 'Chemia do prania' },
             { name: 'Vizir proszek do prania kolor', liters: '1,1 kg', price: 22.00, image: 'Zdjęcia/Vizir kolor.jpg', category: 'Chemia do prania' },
             { name: 'Vizir proszek do białych', liters: '1,1 kg', price: 22.00, image: 'Zdjęcia/Vizir biały.jpg', category: 'Chemia do prania' },
             { name: 'Tresori płyn do płukania', liters: '760 ml', price: 14.00, image: 'Zdjęcia/tresori płyn do płukania.jpg', category: 'Chemia do prania' },
@@ -52,13 +54,13 @@
             { name: 'Eco Shine Oven Cleaner', liters: '1 l', price: 18.50, image: 'Zdjęcia/eco shine oven cleaner.jpg', category: 'Chemia do sprzątania' },
             { name: 'Eco Shine Smart Foam', liters: '1l', price: 18.00, image: 'Zdjęcia/eco shine smart foam.jpg', category: 'Chemia do sprzątania' },
             { name: 'Eco Shine Toilet Cleaner', liters: '750 ml', price: 12.00, image: 'Zdjęcia/Eco shine toilet.jpg', category: 'Chemia do sprzątania' },
-            { name: 'Eco Shine Floor płyn z alkoholem do podłóg', liters: '1l', price: 18.00, image: 'Zdjęcia/Eco shine floor cleaner.jpg', category: 'Chemia do sprzątania' },
-            { name: 'Eco Shine Dish Cleaner płyn do naczyń', liters: '1l', price: 9.00, image: 'Zdjęcia/Eco shine dish cleaner.jpg', category: 'Chemia do sprzątania' },
+            { name: 'Eco Shine Floor płyn z alkoholem do podłóg', liters: '1 l', price: 18.00, image: 'Zdjęcia/Eco shine floor cleaner.jpg', category: 'Chemia do sprzątania' },
+            { name: 'Eco Shine Dish Cleaner płyn do naczyń', liters: '1 l', price: 9.00, image: 'Zdjęcia/Eco shine dish cleaner.jpg', category: 'Chemia do sprzątania' },
             { name: 'Cillit Bang do tłuszczu', liters: '750 ml', price: 12.00, image: 'Zdjęcia/Cilit_tłuszcz.jpg', category: 'Chemia do sprzątania' },
             { name: 'Cillit Bang do kamienia', liters: '750 ml', price: 12.00, image: 'Zdjęcia/Cilit bang do kamienia.jpg', category: 'Chemia do sprzątania' },
             { name: 'Domestos', liters: '750 ml', price: 12.00, image: 'Zdjęcia/Domestos.jpg', category: 'Chemia do sprzątania' },
-            { name: 'Spic Span płyn do podłóg', liters: '1l', price: 8.50, image: 'Zdjęcia/Spic Span.jpeg', category: 'Chemia do sprzątania' },
-            { name: 'Seventh generation płyn do prania', liters: '1l', price: 12.00, image: 'Zdjęcia/Seventh generation płyn do płukania.jpg', category: 'Chemia do prania' },
+            { name: 'Spic Span płyn do podłóg', liters: '1 l', price: 8.50, image: 'Zdjęcia/Spic Span.jpeg', category: 'Chemia do sprzątania' },
+            { name: 'Seventh generation płyn do prania', liters: '1 l', price: 12.00, image: 'Zdjęcia/Seventh generation płyn do płukania.jpg', category: 'Chemia do prania' },
             { name: 'Seventh generation płyn do czyszczenia', liters: '500 ml', price: 6.00, image: 'Zdjęcia/Seventh generation płyn do czyszczenia.jpg', category: 'Chemia do sprzątania' },
             { name: 'Villa płyn do szyb i luster', liters: '750 ml', price: 7.50, image: 'Zdjęcia/Villa płyn do szyb.jpg', category: 'Chemia do sprzątania' },
             { name: 'Fairy płyn do naczyń', liters: '900 ml', price: 10.50, image: 'Zdjęcia/Fairy płyn do naczyń.jpg', category: 'Chemia do sprzątania' },
@@ -71,7 +73,7 @@
             { name: 'Kret granulki duży', liters: '800 g', price: 16.00, image: 'Zdjęcia/Kret granulki duży.jpg', category: 'Chemia do sprzątania' },
             { name: 'Kret granulki mały', liters: '280 g', price: 5.00, image: 'Zdjęcia/Kret granulki mały.jpg', category: 'Chemia do sprzątania' },
             { name: 'Pril kapsułki do zmywarki', liters: '30 szt', price: 24.00, image: 'Zdjęcia/Pril.jpg', category: 'Chemia do sprzątania' },
-            { name: 'Tresori dyfuzor z patyczkami', liters: '200 ml', price: 28.00, image: 'Zdjęcia/Tresori patyczki zapachowe.jpg', category: 'inne' },
+            { name: 'Tresori dyfuzor z patyczkami', liters: '200 ml', price: 28.00, image: 'Zdjęcia/Tresori patyczki zapachowe.jpg', secondaryImage: 'Zdjęcia/Tresori_lawenda.png', category: 'inne' },
             { name: 'Kami folia aluminiowa 20m', price: 7.00, image: 'Zdjęcia/Folia aluminiowa kami.jpg', category: 'inne' },
             { name: 'Subito zapalarka do gazu', price: 3.00, image: 'Zdjęcia/Zapalarki subito.jpg', category: 'inne' },
             { name: 'Colgate szczoteczki do zębów', liters: '4 szt/opakowanie', price: 10.00, image: 'Zdjęcia/Szczoteczki do zebow.jpg', category: 'inne' },
@@ -118,17 +120,27 @@
             return 'Litraż';
         }
 
-        function createProductCard(product) {
+        function createProductCard(product, index) {
             const categoryHtml = product.category ? `<p class="product-category">Kategoria: <strong>${escapeHtml(product.category)}</strong></p>` : '';
             const imageHtml = product.image ? `<img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}">` : '';
+            const thumbnailHtml = product.secondaryImage ? `
+                        <div class="product-image-thumbnails">
+                            <button type="button" class="thumbnail-button" data-image="${escapeHtml(product.secondaryImage)}" aria-label="Podgląd: ${escapeHtml(product.name)}">
+                                <img src="${escapeHtml(product.secondaryImage)}" alt="${escapeHtml(product.name)} - miniatura">
+                            </button>
+                        </div>
+                    ` : '';
             const price = Number(product.price).toFixed(2).replace('.', ',');
             const metaLabel = getMetaLabel(product.liters);
 
             return `
                 <article class="product-card">
-                    <div class="product-image">${imageHtml}</div>
+                    <div class="product-image-wrapper">
+                        <div class="product-image">${imageHtml}</div>
+                        ${thumbnailHtml}
+                    </div>
                     <div class="product-info">
-                        <h2>${escapeHtml(product.name)}</h2>
+                        <h2><span class="product-number">${index + 1}.</span> ${escapeHtml(product.name)}</h2>
                         ${categoryHtml}
                         <p class="product-meta">${metaLabel}: <strong>${escapeHtml(product.liters)}</strong></p>
                         <p class="product-price"><strong>${escapeHtml(price)} zł</strong></p>
@@ -145,6 +157,32 @@
 
             const cards = data.products.map(createProductCard).join('');
             productContainer.innerHTML = `<div class="product-grid">${cards}</div>`;
+            attachThumbnailHover();
+        }
+
+        function attachThumbnailHover() {
+            document.querySelectorAll('.product-card').forEach(function (card) {
+                var mainImage = card.querySelector('.product-image img');
+                if (!mainImage) {
+                    return;
+                }
+                var defaultSrc = mainImage.src;
+                card.querySelectorAll('.thumbnail-button').forEach(function (button) {
+                    var hoverSrc = button.dataset.image;
+                    button.addEventListener('mouseenter', function () {
+                        mainImage.src = hoverSrc;
+                    });
+                    button.addEventListener('mouseleave', function () {
+                        mainImage.src = defaultSrc;
+                    });
+                    button.addEventListener('focus', function () {
+                        mainImage.src = hoverSrc;
+                    });
+                    button.addEventListener('blur', function () {
+                        mainImage.src = defaultSrc;
+                    });
+                });
+            });
         }
 
         function getFilteredProducts(category = '', searchTerm = '') {
@@ -189,6 +227,21 @@
         searchInput.value = initialSearch;
 
         loadProducts(initialCategory, initialSearch);
+
+        var scrollButton = document.querySelector('.scroll-top-button');
+        if (scrollButton) {
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 200) {
+                    scrollButton.classList.add('visible');
+                } else {
+                    scrollButton.classList.remove('visible');
+                }
+            });
+            scrollButton.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
     </script>
+    <button type="button" class="scroll-top-button" aria-label="Powrót do góry">↑</button>
 </body>
 </html>
