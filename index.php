@@ -6,21 +6,21 @@ $allowedCategories = ['Chemia do prania', 'Chemia do sprzątania', 'Artykuły sp
 $products = [
     [
         'name' => 'Pergel Black',
-        'liters' => '3l',
+        'liters' => '3 l',
         'price' => 12.00,
         'image' => 'Zdjęcia/Pergel black.jpg',
         'category' => 'Chemia do prania'
     ],
     [
         'name' => 'Pergel Kolor',
-        'liters' => '3l',
+        'liters' => '3 l',
         'price' => 12.00,
         'image' => 'Zdjęcia/Pergel kolor.jpg',
         'category' => 'Chemia do prania'
     ],
     [
         'name' => 'Pergel Universal',
-        'liters' => '3l',
+        'liters' => '3 l',
         'price' => 12.00,
         'image' => 'Zdjęcia/Pergel uniwersalny.jpg',
         'category' => 'Chemia do prania'
@@ -69,49 +69,49 @@ $products = [
     ],
     [
         'name' => 'Vanish color',
-        'liters' => '1,5l',
+        'liters' => '1,5 l',
         'price' => 22.00,
         'image' => 'Zdjęcia/vanish color.jpg',
         'category' => 'Chemia do prania'
     ],
     [
         'name' => 'Persil płyn do prania kolor',
-        'liters' => '6l',
+        'liters' => '6 l',
         'price' => 50.00,
         'image' => 'Zdjęcia/Persil kolor.jpg',
         'category' => 'Chemia do prania'
     ],
     [
         'name' => 'Persil płyn do prania uniwersalny',
-        'liters' => '6l',
+        'liters' => '6 l',
         'price' => 50.00,
         'image' => 'Zdjęcia/Persil uniwerslany.jpg',
         'category' => 'Chemia do prania'
     ],
     [
         'name' => 'Persil płyn do prania black',
-        'liters' => '6l',
+        'liters' => '6 l',
         'price' => 50.00,
         'image' => 'Zdjęcia/Persil czarny.jpg',
         'category' => 'Chemia do prania'
     ],
     [
         'name' => 'Eco Shine Sanit pianka odkamieniająca',
-        'liters' => '1l',
+        'liters' => '1 l',
         'price' => 16.00,
         'image' => 'Zdjęcia/ECO SHINE SANIT pianka.jpg',
         'category' => 'Chemia do sprzątania'
     ],
     [
         'name' => 'Eco Shine Oven Cleaner',
-        'liters' => '1l',
+        'liters' => '1 l',
         'price' => 18.50,
         'image' => 'Zdjęcia/eco shine oven cleaner.jpg',
         'category' => 'Chemia do sprzątania'
     ],
     [
         'name' => 'Eco Shine Smart Foam',
-        'liters' => '1l',
+        'liters' => '1 l',
         'price' => 18.00,
         'image' => 'Zdjęcia/eco shine smart foam.jpg',
         'category' => 'Chemia do sprzątania'
@@ -125,14 +125,14 @@ $products = [
     ],
     [
         'name' => 'Eco Shine Floor płyn z alkoholem do podłóg',
-        'liters' => '1l',
+        'liters' => '1 l',
         'price' => 18.00,
         'image' => 'Zdjęcia/Eco shine floor cleaner.jpg',
         'category' => 'Chemia do sprzątania'
     ],
     [
         'name' => 'Eco Shine Dish Cleaner płyn do naczyń',
-        'liters' => '1l',
+        'liters' => '1 l',
         'price' => 9.00,
         'image' => 'Zdjęcia/Eco shine dish cleaner.jpg',
         'category' => 'Chemia do sprzątania'
@@ -160,7 +160,7 @@ $products = [
     ],
     [
         'name' => 'Spic Span płyn do podłóg',
-        'liters' => '1l',
+        'liters' => '1 l',
         'price' => 8.50,
         'image' => 'Zdjęcia/Spic Span.jpeg',
         'category' => 'Chemia do sprzątania'
@@ -257,6 +257,7 @@ $products = [
         'liters' => '200 ml',
         'price' => 28.00,
         'image' => 'Zdjęcia/Tresori patyczki zapachowe.jpg',
+        'secondaryImage' => 'Zdjęcia/Tresori_lawenda.png',
         'category' => 'inne'
     ],
     [
@@ -409,10 +410,10 @@ function getMetaLabel(?string $liters): string {
         return '';
     }
     if (stripos($liters, 'kg') !== false) {
-        return 'Waga';
+        return 'Masa netto';
     }
     if (stripos($liters, 'g') !== false) {
-        return 'Waga';
+        return 'Masa netto';
     }
     if (stripos($liters, 'szt') !== false) {
         return 'Ilość sztuk';
@@ -441,12 +442,14 @@ function getMetaLabel(?string $liters): string {
                 <label for="search">Wyszukaj produkt:</label>
                 <input type="search" id="search" name="search" placeholder="Nazwa produktu" value="<?= htmlspecialchars($search) ?>">
                 <label for="category">Filtruj kategorię:</label>
-                <select id="category" name="category">
-                    <option value=""<?= $category === '' ? ' selected' : '' ?>>Wszystkie kategorie</option>
-                    <?php foreach ($allowedCategories as $option): ?>
-                        <option value="<?= htmlspecialchars($option) ?>"<?= $category === $option ? ' selected' : '' ?>><?= htmlspecialchars($option) ?></option>
-                    <?php endforeach; ?>
-                </select>
+                <div class="select-wrapper">
+                    <select id="category" name="category">
+                        <option value=""<?= $category === '' ? ' selected' : '' ?>>Wszystkie kategorie</option>
+                        <?php foreach ($allowedCategories as $option): ?>
+                            <option value="<?= htmlspecialchars($option) ?>"<?= $category === $option ? ' selected' : '' ?>><?= htmlspecialchars($option) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
                 <button type="submit">Zastosuj</button>
             </form>
         </div>
@@ -456,13 +459,22 @@ function getMetaLabel(?string $liters): string {
             </div>
         <?php else: ?>
             <div class="product-grid">
-                <?php foreach ($filteredProducts as $product): ?>
+                <?php foreach ($filteredProducts as $index => $product): ?>
                     <article class="product-card">
-                        <div class="product-image">
-                            <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>">
+                        <div class="product-image-wrapper">
+                            <div class="product-image">
+                                <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>">
+                            </div>
+                            <?php if (!empty($product['secondaryImage'])): ?>
+                                <div class="product-image-thumbnails">
+                                    <button type="button" class="thumbnail-button" data-image="<?= htmlspecialchars($product['secondaryImage']) ?>" aria-label="Podgląd: <?= htmlspecialchars($product['name']) ?>">
+                                        <img src="<?= htmlspecialchars($product['secondaryImage']) ?>" alt="<?= htmlspecialchars($product['name']) ?> - miniatura">
+                                    </button>
+                                </div>
+                            <?php endif; ?>
                         </div>
                         <div class="product-info">
-                            <h2><?= htmlspecialchars($product['name']) ?></h2>
+                            <h2><span class="product-number"><?= $index + 1 ?>.</span> <?= htmlspecialchars($product['name']) ?></h2>
                             <p class="product-category">Kategoria: <strong><?= htmlspecialchars($product['category']) ?></strong></p>
                         <?php if (isset($product['liters']) && $product['liters'] !== ''): ?>
                             <p class="product-meta"><?= htmlspecialchars(getMetaLabel($product['liters'])) ?>: <strong><?= htmlspecialchars($product['liters']) ?></strong></p>
@@ -478,5 +490,48 @@ function getMetaLabel(?string $liters): string {
             </div>
         <?php endif; ?>
     </main>
+    <button type="button" class="scroll-top-button" aria-label="Powrót do góry">↑</button>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.product-card').forEach(function (card) {
+                var mainImage = card.querySelector('.product-image img');
+                if (!mainImage) {
+                    return;
+                }
+                var defaultSrc = mainImage.src;
+
+                card.querySelectorAll('.thumbnail-button').forEach(function (button) {
+                    var hoverSrc = button.dataset.image;
+                    button.addEventListener('mouseenter', function () {
+                        mainImage.src = hoverSrc;
+                    });
+                    button.addEventListener('mouseleave', function () {
+                        mainImage.src = defaultSrc;
+                    });
+                    button.addEventListener('focus', function () {
+                        mainImage.src = hoverSrc;
+                    });
+                    button.addEventListener('blur', function () {
+                        mainImage.src = defaultSrc;
+                    });
+                });
+            });
+
+            var scrollButton = document.querySelector('.scroll-top-button');
+            if (scrollButton) {
+                window.addEventListener('scroll', function () {
+                    if (window.scrollY > 200) {
+                        scrollButton.classList.add('visible');
+                    } else {
+                        scrollButton.classList.remove('visible');
+                    }
+                });
+
+                scrollButton.addEventListener('click', function () {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
 </body>
 </html>

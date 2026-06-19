@@ -61,6 +61,11 @@ img {
     transform: translateY(-4px);
     box-shadow: 0 24px 60px rgba(0, 38, 77, 0.14);
 }
+.product-image-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
 .product-image {
     width: 100%;
     min-height: 260px;
@@ -72,16 +77,51 @@ img {
     justify-content: center;
     overflow: hidden;
 }
-.product-image img {
+.product-image img,
+.thumbnail-button img {
     width: 100%;
     height: 100%;
     object-fit: contain;
     object-position: center;
 }
+.product-image-thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.thumbnail-button {
+    width: 72px;
+    height: 72px;
+    padding: 6px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 38, 77, 0.12);
+    border-radius: 18px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.thumbnail-button:hover,
+.thumbnail-button:focus {
+    border-color: rgba(0, 38, 77, 0.3);
+    box-shadow: 0 0 0 3px rgba(0, 38, 77, 0.08);
+}
+.thumbnail-button img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
 .product-info {
     padding: 22px 24px 28px;
     background: transparent;
     border-top: 1px solid rgba(0, 38, 77, 0.08);
+}
+.product-number {
+    display: inline-block;
+    margin-right: 10px;
+    color: #00264d;
+    font-weight: 700;
 }
 .product-category {
     margin: 0 0 8px;
@@ -173,6 +213,27 @@ img {
     box-shadow: none !important;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
+.select-wrapper {
+    position: relative;
+    display: inline-flex;
+    width: 260px;
+}
+.select-wrapper::after {
+    content: '';
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #00264d;
+    border-bottom: 2px solid #00264d;
+    transform: translateY(-50%) rotate(45deg);
+    pointer-events: none;
+}
+.filter-bar select {
+    padding-right: 38px;
+}
 .filter-bar input[type="search"] {
     width: 260px;
 }
@@ -199,6 +260,31 @@ img {
     cursor: pointer;
 }
 .filter-bar button:hover {
+    background: #011b3a;
+}
+.scroll-top-button {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: #00264d;
+    color: #ffffff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    z-index: 1000;
+}
+.scroll-top-button.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.scroll-top-button:hover {
     background: #011b3a;
 }
 @media (max-width: 640px) {
