@@ -92,9 +92,9 @@
             { name: 'Łowicz koncentrat pomidorowy', liters: '80 g', price: 2.50, image: 'Zdjęcia/Koncentrat.png', category: 'Artykuły spożywcze' },
             { name: 'Kotlin Ketchup łagodny', liters: '450 g', price: 5.00, image: 'Zdjęcia/Kotlin_ketchup_łagodny.png', category: 'Artykuły spożywcze' },
             { name: 'Kotlin Ketchup pikantny', liters: '450 g', price: 5.00, image: 'Zdjęcia/Ketchup_pikantny.jpg', category: 'Artykuły spożywcze' },
-            { name: 'Lexar NM790', liters: '2 TB', price: 950, image: 'Zdjęcia/Lexar NM790.jpg', category: 'inne' },
-            { name: 'Samsung 990 EVO Plus', liters: '2 TB', price: 1050, image: 'Zdjęcia/Samsung 990 EVO Plus.jpg', category: 'inne' },
-            { name: 'Lexar NQ790', liters: '2 TB', price: 950, image: 'Zdjęcia/Lexar NQ790.jpg', category: 'inne' }
+            { name: 'Lexar NM790', liters: '2 TB', price: 950, image: 'Zdjęcia/Lexar NM790.jpg', category: 'inne', warranty: 'Gwarancja' },
+            { name: 'Samsung 990 EVO Plus', liters: '2 TB', price: 1050, image: 'Zdjęcia/Samsung 990 EVO Plus.jpg', category: 'inne', warranty: 'Gwarancja' },
+            { name: 'Lexar NQ790', liters: '2 TB', price: 950, image: 'Zdjęcia/Lexar NQ790.jpg', category: 'inne', warranty: 'Gwarancja' }
         ];
         const form = document.getElementById('filterForm');
         const categorySelect = document.getElementById('category');
@@ -135,6 +135,7 @@
                     ` : '';
             const price = Number(product.price).toFixed(2).replace('.', ',');
             const metaLabel = getMetaLabel(product.liters);
+            const warrantyHtml = product.warranty ? `<p class="product-warranty"><strong>${escapeHtml(product.warranty)}</strong></p>` : '';
 
             return `
                 <article class="product-card">
@@ -147,6 +148,7 @@
                         ${categoryHtml}
                         <p class="product-meta">${metaLabel}: <strong>${escapeHtml(product.liters)}</strong></p>
                         <p class="product-price"><strong>${escapeHtml(price)} zł</strong></p>
+                        ${warrantyHtml}
                     </div>
                 </article>
             `;
