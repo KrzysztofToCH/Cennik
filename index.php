@@ -253,7 +253,7 @@ $products = [
         'category' => 'Chemia do sprzątania'
     ],
     [
-        'name' => 'Tresori dyfuzor z patyczkami (2 kolory)',
+        'name' => 'Tresori dyfuzor z patyczkami',
         'liters' => '200 ml',
         'price' => 28.00,
         'image' => 'Zdjęcia/Tresori patyczki zapachowe.jpg',
