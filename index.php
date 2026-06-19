@@ -1,5 +1,6 @@
 <?php
 $category = $_GET['category'] ?? '';
+$search = trim((string)($_GET['search'] ?? ''));
 $allowedCategories = ['Chemia do prania', 'Chemia do sprzątania', 'Artykuły spożywcze', 'inne'];
 
 $products = [
@@ -165,14 +166,14 @@ $products = [
         'category' => 'Chemia do sprzątania'
     ],
     [
-        'name' => 'Eco Seventh generation płyn do prania',
+        'name' => 'Seventh generation płyn do prania',
         'liters' => '1l',
         'price' => 12.00,
         'image' => 'Zdjęcia/Seventh generation płyn do płukania.jpg',
         'category' => 'Chemia do prania'
     ],
     [
-        'name' => 'Eco Seventh generation płyn do czyszczenia',
+        'name' => 'Seventh generation płyn do czyszczenia',
         'liters' => '500 ml',
         'price' => 6.00,
         'image' => 'Zdjęcia/Seventh generation płyn do czyszczenia.jpg',
@@ -282,35 +283,35 @@ $products = [
         'liters' => '2 szt',
         'price' => 2.50,
         'image' => 'Zdjęcia/Zmywka do teflonu.jpg',
-        'category' => 'Chemia do sprzątania'
+        'category' => 'inne'
     ],
     [
         'name' => 'Worki na śmieci 35l',
         'liters' => '15 szt',
         'price' => 2.50,
         'image' => 'Zdjęcia/Worki 35l.jpg',
-        'category' => 'Chemia do sprzątania'
+        'category' => 'inne'
     ],
     [
         'name' => 'Worki na śmieci 60l',
         'liters' => '10 szt',
         'price' => 3.50,
         'image' => 'Zdjęcia/worki 60l.jpg',
-        'category' => 'Chemia do sprzątania'
+        'category' => 'inne'
     ],
     [
         'name' => 'Worki na śmieci 120l',
         'liters' => '10 szt',
         'price' => 4.50,
         'image' => 'Zdjęcia/worki 120l.jpg',
-        'category' => 'Chemia do sprzątania'
+        'category' => 'inne'
     ],
     [
         'name' => 'Worki na śmieci 160l',
         'liters' => '10 szt',
         'price' => 9.00,
         'image' => 'Zdjęcia/worki 160l.jpg',
-        'category' => 'Chemia do sprzątania'
+        'category' => 'inne'
     ],
     [
         'name' => 'Makaron Lubella spaghetti',
@@ -388,8 +389,11 @@ if ($category !== '' && !in_array($category, $allowedCategories, true)) {
     $category = '';
 }
 
-$filteredProducts = array_filter($products, function ($product) use ($category) {
-    return $category === '' || $product['category'] === $category;
+$filteredProducts = array_filter($products, function ($product) use ($category, $search) {
+    $matchesCategory = $category === '' || $product['category'] === $category;
+    $matchesSearch = $search === '' || stripos($product['name'], $search) !== false;
+
+    return $matchesCategory && $matchesSearch;
 });
 
 // Ustaw domyślną cenę 0.00 dla produktów, które nie mają klucza 'price'
@@ -422,7 +426,7 @@ function getMetaLabel(?string $liters): string {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strona główna</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?ver=2">
 </head>
 <body>
     <header class="site-header">
@@ -434,6 +438,8 @@ function getMetaLabel(?string $liters): string {
     <main class="container">
         <div class="filter-bar">
             <form method="get">
+                <label for="search">Wyszukaj produkt:</label>
+                <input type="search" id="search" name="search" placeholder="Nazwa produktu" value="<?= htmlspecialchars($search) ?>">
                 <label for="category">Filtruj kategorię:</label>
                 <select id="category" name="category">
                     <option value=""<?= $category === '' ? ' selected' : '' ?>>Wszystkie kategorie</option>
