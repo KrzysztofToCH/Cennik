@@ -128,8 +128,11 @@
         }
 
         function getMetaLabel(liters) {
+            if (!liters || liters === 'undefined' || liters.trim() === '') {
+                return ''; 
+            }
             if (typeof liters !== 'string') {
-                return 'Litraż';
+                return '';
             }
             if (liters.includes('kg')) {
                 return 'Masa netto';
@@ -143,6 +146,7 @@
              if (liters.includes('TB')) {
                 return 'Pojemność';
             }
+           
            
             return 'Litraż';
         }
