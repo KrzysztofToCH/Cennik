@@ -22,6 +22,7 @@
                 <div class="select-wrapper">
                     <select id="category" name="category">
                         <option value="">Wszystkie kategorie</option>
+                        <option value="Nowości">Nowości</option>
                         <option value="Chemia do prania">Chemia do prania</option>
                         <option value="Chemia do sprzątania">Chemia do sprzątania</option>
                         <option value="Artykuły spożywcze">Artykuły spożywcze</option>
@@ -108,8 +109,16 @@
             { name: 'Shik mydło w żelu', liters: '500 g', price: 5.00, image: 'Zdjęcia/Shik gel.png', category: 'Kosmetyki do ciała' },
             { name: 'Nivea balsam do ciała', liters: '250 ml', price: 6.00, image: 'Zdjęcia/Nivea.png', category: 'Kosmetyki do ciała' },
             { name: 'Bevola', liters: '300 ml', price: 5.00, image: 'Zdjęcia/bevola.png', category: 'Kosmetyki do ciała' },
-            { name: 'Fa mydło', liters: '250 ml', price: 5.00, image: 'Zdjęcia/Fa.png', category: 'Kosmetyki do ciała' },
-            { name: 'Fa mydło', liters: '250 ml', price: 5.00, image: 'Zdjęcia/Fa.png', category: 'Kosmetyki do ciała' }
+            { name: 'Fa mydło', liters: '250 ml', price: 5.00, image: 'Zdjęcia/Fa.png', category: 'Kosmetyki do ciała'},
+            { name: 'Felce Azzura Rose & Lotus', liters: '2 l', price: 14.00, image: '', category: 'Chemia do prania', isNew: true },
+            { name: 'Felce Azzura Amber & Vanilla', liters: '2 l', price: 14.00, image: '', category: 'Chemia do prania', isNew: true },
+            { name: 'Nivea Rollon Men', liters: '50 ml', price: 10.00, image: '', category: 'Kosmetyki do ciała', isNew: true },
+            { name: 'Nivea Rollon Women', liters: '50 ml', price: 10.00, image: '', category: 'Kosmetyki do ciała', isNew: true },
+            { name: 'Ariel White', liters: '4 kg', price: 39.00, image: '', category: 'Chemia do prania', isNew: true },
+            { name: 'Ariel Color', liters: '4 kg', price: 39.00, image: '', category: 'Chemia do prania', isNew: true },
+            { name: 'Almusso papier toaletowy', liters: '18 szt/opakowanie', price: 16.00, image: '', category: 'Inne', isNew: true },
+            { name: 'Panasonic LR-O6 baterie alkaiczne', liters: '4 kg', price: 5.00, image: '', category: 'Inne', isNew: true },
+            { name: 'Panasonic LR0-3 baterie alkaiczne', liters: '4 kg', price: 5.00, image: '', category: 'Inne', isNew: true }
             
             
         ];
@@ -163,9 +172,12 @@
             const metaLabel = getMetaLabel(product.liters);
             const warrantyHtml = product.warranty ? `<p class="product-warranty"><strong>${escapeHtml(product.warranty)}</strong></p>` : '';
 
+            const badgeHtml = product.isNew ? '<span class="product-badge">Nowość</span>' : '';
+
             return `
                 <article class="product-card">
                     <div class="product-image-wrapper">
+                        ${badgeHtml}
                         <div class="product-image">${imageHtml}</div>
                         ${thumbnailHtml}
                     </div>
@@ -220,7 +232,14 @@
             const normalizedSearch = String(searchTerm).trim().toLowerCase();
 
             return products.filter(product => {
-                const matchesCategory = !category || product.category === category;
+                let matchesCategory = true;
+                if (category) {
+                    if (category === 'Nowości') {
+                        matchesCategory = Boolean(product.isNew);
+                    } else {
+                        matchesCategory = product.category === category;
+                    }
+                }
                 const matchesSearch = !normalizedSearch || product.name.toLowerCase().includes(normalizedSearch);
 
                 return matchesCategory && matchesSearch;
@@ -229,6 +248,8 @@
 
         function loadProducts(category = '', searchTerm = '') {
             const filteredProducts = getFilteredProducts(category, searchTerm);
+            // pokaż najpierw produkty oznaczone jako nowe, resztę zachowując kolejność
+            filteredProducts.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
             renderProducts({ products: filteredProducts });
         }
 
