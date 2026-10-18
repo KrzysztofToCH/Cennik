@@ -204,12 +204,12 @@
 
         function renderProducts(data) {
             if (!data.products || data.products.length === 0) {
-                productContainer.InnerHTML = '<div class="empty-state"><h2>Brak produktów</h2></div>';
+                productContainer.innerHTML = '<div class="empty-state"><h2>Brak produktów</h2></div>';
                 return;
             }
 
             const cards = data.products.map(createProductCard).join('');
-            productContainer.InnerHTML = `<div class="product-grid">${cards}</div>`;
+            productContainer.innerHTML = `<div class="product-grid">${cards}</div>`;
             attachThumbnailHover();
         }
 
