@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css?ver=2">
 </head>
 <body>
-    <header class="site-header">
+    <header class="site-header" id="top">
         <div class="container">
             <h1><a href="#top">Strona główna</a></h1>
         </div>
@@ -279,6 +279,15 @@
 
             const url = params.toString() ? window.location.pathname + '?' + params.toString() : window.location.pathname;
             history.replaceState(null, '', url);
+        });
+
+        document.querySelector('.site-header h1 a').addEventListener('click', function (event) {
+            event.preventDefault();
+            categorySelect.value = '';
+            searchInput.value = '';
+            loadProducts();
+            history.replaceState(null, '', window.location.pathname);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
         const searchParams = new URLSearchParams(window.location.search);
